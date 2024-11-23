@@ -12,6 +12,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- Space + s saves the file
 vim.keymap.set("n", "<C-s>", ":write<CR>", { silent = true })
+vim.keymap.set({"i", "v"}, "<C-s>", "<Esc>:write<CR>", { silent = true })
 
 -- Move to first symbol on the line
 vim.keymap.set("n", "H", "^")
