@@ -13,26 +13,34 @@ return {
 
 		-- Definisci i mapping personalizzati
 		local neoscroll = require("neoscroll")
+
 		local keymap = {
 			["<C-k>"] = function()
-				neoscroll.scroll(-vim.wo.scroll, true, 250)
+				neoscroll.scroll(-vim.wo.scroll, { move_cursor = true, duration = 250 })
 			end,
 			["<C-j>"] = function()
-				neoscroll.scroll(vim.wo.scroll, true, 250)
+				neoscroll.scroll(vim.wo.scroll, { move_cursor = true, duration = 250 })
 			end,
 			["<C-S-g>"] = function()
-				neoscroll.scroll(-vim.api.nvim_win_get_height(0), true, 450)
+				neoscroll.scroll(-vim.api.nvim_win_get_height(0), { move_cursor = true, duration = 450 })
 			end,
 			["<C-g>"] = function()
-				neoscroll.scroll(vim.api.nvim_win_get_height(0), true, 450)
+				neoscroll.scroll(vim.api.nvim_win_get_height(0), { move_cursor = true, duration = 450 })
 			end,
 			["<C-y>"] = function()
-				neoscroll.scroll(-0.10, false, 100)
+				neoscroll.scroll(-0.1, { move_cursor = false, duration = 100 })
 			end,
 			["<C-e>"] = function()
-				neoscroll.scroll(0.10, false, 100)
+				neoscroll.scroll(0.1, { move_cursor = false, duration = 100 })
+			end,
+            ["<ScrollWheelUp>"] = function()
+				neoscroll.scroll(-3, { move_cursor = false, duration = 50 })
+			end,
+			["<ScrollWheelDown>"] = function()
+				neoscroll.scroll(3, { move_cursor = false, duration = 50 })
 			end,
 		}
+
 		local modes = { "n", "v", "x" }
 		for key, func in pairs(keymap) do
 			vim.keymap.set(modes, key, func)
