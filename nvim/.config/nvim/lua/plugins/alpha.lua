@@ -68,7 +68,7 @@ return {
 		-- Set menu
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-			dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
+			dashboard.button("f", "󰈞  > Find file", "<cmd>lua require('fzf-lua').files( { resume = true} )<CR>"),
 			dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
 			dashboard.button("m", "󰬔  > Mason", ":Mason<CR>"),
 			dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),

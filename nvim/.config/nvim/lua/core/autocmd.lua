@@ -22,11 +22,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
 		-- Find references for the word under your cursor.
-		map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+		-- map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 
 		-- Jump to the implementation of the word under your cursor.
 		--  Useful when your language has ways of declaring types without an actual implementation.
-		map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+		-- map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 
 		-- Jump to the type of the word under your cursor.
 		--  Useful when you're not sure what type a variable is and you want to see
@@ -38,10 +38,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
 		-- Find File on the working directory
-		map("<C-p>", require("telescope.builtin").find_files, "[F]ind [F]ile")
+		-- map("<C-p>", require("telescope.builtin").find_files, "[F]ind [F]ile")
 
 		-- Fuzzy search the working directory
-		map("<leader>fg", require("telescope.builtin").live_grep, "Live Grep")
+		-- map("<leader>fg", require("telescope.builtin").live_grep, "Live Grep")
 
 		-- List all the acrive buffers
 		map("<leader>fb", require("telescope.builtin").buffers, "[F]ind [B]uffers")

@@ -3,12 +3,13 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
+        'saghen/blink.cmp',
 	},
 	enabled = true,
 	config = function()
 		local lspconfig = require("lspconfig")
 		local util = require("lspconfig.util")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+		-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		-- Disable inline error messages
 		vim.diagnostic.config({
@@ -54,7 +55,8 @@ return {
 			-- )
 		end
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		-- local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = require('blink.cmp').get_lsp_capabilities()
 		local signs = { Error = "❌", Warn = "", Hint = "󰠠", Info = "" }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type

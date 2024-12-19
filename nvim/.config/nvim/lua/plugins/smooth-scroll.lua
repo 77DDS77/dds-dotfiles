@@ -15,10 +15,10 @@ return {
 		local neoscroll = require("neoscroll")
 
 		local keymap = {
-			["<C-k>"] = function()
+			["<C-u>"] = function()
 				neoscroll.scroll(-vim.wo.scroll, { move_cursor = true, duration = 250 })
 			end,
-			["<C-j>"] = function()
+			["<C-d>"] = function()
 				neoscroll.scroll(vim.wo.scroll, { move_cursor = true, duration = 250 })
 			end,
 			["<C-S-g>"] = function()
