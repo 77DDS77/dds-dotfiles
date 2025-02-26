@@ -7,8 +7,8 @@ return {
 		priority = 1000,
 		config = function()
             require("catppuccin").setup({
-                flavour="frappe",
-                -- flavour="macchiato",
+                -- flavour="frappe",
+                flavour="macchiato",
                 term_colors = true
             })
 			vim.cmd.colorscheme("catppuccin")
