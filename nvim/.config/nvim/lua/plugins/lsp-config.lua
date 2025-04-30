@@ -65,7 +65,14 @@ return {
 		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+            root_dir = lspconfig.util.root_pattern("package.json"),
 		})
+
+        lspconfig["denols"].setup {
+			capabilities = capabilities,
+            on_attach = on_attach,
+            root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+        }
 
 		-- configure html server
 		lspconfig["html"].setup({
