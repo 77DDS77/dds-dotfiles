@@ -65,14 +65,27 @@ return {
 		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-            root_dir = lspconfig.util.root_pattern("package.json"),
+            -- root_dir = lspconfig.util.root_pattern("package.json"),
+            root_dir = function(fname)
+                local ts_ls_util = require("lspconfig.util")
+                if ts_ls_util.root_pattern("deno.json", "deno.jsonc")(fname) then
+                    return nil
+                end
+                return ts_ls_util.root_pattern("tsconfig.json", "package.json", ".git")(fname)
+            end,
 		})
 
-        lspconfig["denols"].setup {
-			capabilities = capabilities,
-            on_attach = on_attach,
-            root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-        }
+        -- deno_ls fuckery
+        local deno_root = require("lspconfig.util").root_pattern("deno.json", "deno.jsonc")(vim.fn.getcwd())
+        if deno_root then
+            lspconfig["denols"].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+                root_dir = function()
+                    return deno_root
+                end,
+            })
+        end
 
 		-- configure html server
 		lspconfig["html"].setup({
