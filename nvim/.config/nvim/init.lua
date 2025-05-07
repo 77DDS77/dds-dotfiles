@@ -1,16 +1,6 @@
 vim.g.node_path = vim.fn.system("nvm which current"):gsub("%s+", "")
 
---test 
---
-
-local start = vim.loop.hrtime()
-vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    local elapsed = (vim.loop.hrtime() - start) / 1e6
-    print("Avvio completato in " .. math.floor(elapsed) .. " ms")
-  end
-})
-
+_G.nvim_start_time = vim.loop.hrtime()
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
