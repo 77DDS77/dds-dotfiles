@@ -1,0 +1,53 @@
+📘 TMUX QUICK HELP
+
+───────────── GENERAL ─────────────
+
+Prefix key      → Ctrl + A
+
+New window      → Prefix + c
+
+Rename window   → Prefix + ,
+
+Detach session  → Prefix + d
+
+Reload config   → Prefix + r
+
+───────────── PANES ───────────────
+
+Vertical split  → Prefix + %
+
+Horizontal split→ Prefix + "
+
+Navigate panes  → Prefix + h / j / k / l
+
+Kill pane       → Prefix + x
+
+───────────── WINDOWS ─────────────
+
+Next window     → Prefix + n
+
+Prev window     → Prefix + p
+
+List windows    → Prefix + w
+
+Move window     → Prefix + . (then number)
+
+───────────── SESSIONS ────────────
+
+List sessions   → tmux ls
+
+Attach session  → tmux attach -t 
+
+New session     → tmux new -s 
+
+Kill session    → tmux kill-session -t 
+
+───────────── COPY MODE ───────────
+
+Enter copy mode → Prefix + [
+Scroll up/down  → ↑ / ↓ or PgUp / PgDn
+
+Start selection → Space
+Copy selection  → Enter
+Paste           → Prefix + ]
+
