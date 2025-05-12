@@ -2,6 +2,7 @@ return {
 	"ibhagwan/fzf-lua",
 	-- optional for icon support
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+    event="VeryLazy",
 	config = function()
 		-- calling `setup` is optional for customization
 		vim.keymap.set("n","<c-P>","<cmd>lua require('fzf-lua').files( { resume = true} )<CR>",{ desc = "FzF Files" })

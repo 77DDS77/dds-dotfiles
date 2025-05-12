@@ -1,7 +1,7 @@
 vim.g.node_path = vim.fn.system("nvm which current"):gsub("%s+", "")
 
---test 
---
+_G.nvim_start_time = vim.loop.hrtime()
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	vim.fn.system({
